@@ -50,7 +50,7 @@ class Predict {
   }
 
   async imply(request) {
-    const input = request.split("").map(item => this.hanzi_2_index[item])
+    const input = request.toLowerCase().split("").map(item => this.hanzi_2_index[item])
     return await this.client.Predict().sendMessage({
       model_spec: {
         name: "simplifier"
